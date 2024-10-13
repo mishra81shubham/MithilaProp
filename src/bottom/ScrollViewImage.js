@@ -64,15 +64,14 @@ export default function ScrollViewImage({ props }) {
 
   const ListItem = ({ item }) => (
     <>
-    <TouchableOpacity onPress={() => handelSearchDetails(item.id)}
+    <TouchableOpacity
+      onPress={() => handelSearchDetails(item.id)}
       style={{
-        // width: width - 50,
         height: height / 2,
         justifyContent: 'center',
         alignItems: 'center',
         overflow: "hidden",
-        marginTop:20,
-        overflow:"hidden",
+        marginTop: 20,
       }}
     >
       <Image style={styles.propertyImage} source={{ uri: item.image }} />
@@ -89,83 +88,7 @@ export default function ScrollViewImage({ props }) {
             {item.location}, {item.city}
           </Text>
         </View>
-
-        <View style={styles.featurePropBottom}>
-          <View style={styles.mngContentView}>
-            <FontAwesome5
-              style={styles.icon}
-              color="#FFF000"
-              name="rupee-sign"
-              size={15}
-            />
-            <Text style={styles.featureNameDisplay}>
-            {`${item.price && item.price} ${item?.price_unit}`}
-            </Text>
-          </View>
-          <View style={styles.mngContentView}>
-            <Fontisto
-              style={styles.icon}
-              color="#FFF000"
-              name="date"
-              size={15}
-            />
-            <Text style={styles.featureNameDisplay}>
-              {item.available_time}
-            </Text>
-          </View>
-        </View>
-      </View>
-      <View style={styles.rowComplex}>
-        <TouchableOpacity
-          style={styles.mngSocialMedia}
-          onPress={openDialer}>
-          <Feather
-            style={styles.icon}
-            color="#FFF000"
-            name="phone-call"
-            size={22}
-          />
-          <Text style={[styles.callUsMsg, { color: '#FFF000' }]}>Call</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={openWhatsApp}>
-          <FontAwesome
-            style={styles.icon}
-            color="#4DC247"
-            name="whatsapp"
-            size={22}
-          />
-          <Text style={[styles.callUsMsg, { color: '#4DC247' }]}>
-            Whatsapp
-          </Text>
-        </TouchableOpacity>
-      </View>
-    </TouchableOpacity>
-    <View
-      style={{
-        width: width - 50,
-        height: height / 2,
-        justifyContent: 'center',
-        alignItems: 'center',
-        overflow: "hidden"
-      }}
-    >
-      <Image style={styles.propertyImage} source={{ uri: item.image }} />
-      <View style={styles.positionMngAcor}>
-        <Text style={styles.titleNewList}>{item.title}</Text>
-        <View style={styles.mngContentView}>
-          <FontAwesome5
-            style={styles.icon}
-            color="#FFF000"
-            name="map-marked-alt"
-            size={20}
-          />
-          <Text style={styles.cityPriceName}>
-            {item.location}, {item.city}
-          </Text>
-        </View>
-
+  
         <View style={styles.featurePropBottom}>
           <View style={styles.mngContentView}>
             <FontAwesome5
@@ -191,10 +114,12 @@ export default function ScrollViewImage({ props }) {
           </View>
         </View>
       </View>
+  
       <View style={styles.rowComplex}>
         <TouchableOpacity
           style={styles.mngSocialMedia}
-          onPress={openDialer}>
+          onPress={openDialer}
+        >
           <Feather
             style={styles.icon}
             color="#FFF000"
@@ -203,10 +128,11 @@ export default function ScrollViewImage({ props }) {
           />
           <Text style={[styles.callUsMsg, { color: '#FFF000' }]}>Call</Text>
         </TouchableOpacity>
-
+  
         <TouchableOpacity
           style={styles.mngSocialMedia}
-          onPress={openWhatsApp}>
+          onPress={openWhatsApp}
+        >
           <FontAwesome
             style={styles.icon}
             color="#4DC247"
@@ -218,9 +144,11 @@ export default function ScrollViewImage({ props }) {
           </Text>
         </TouchableOpacity>
       </View>
-    </View>
-</>
+    </TouchableOpacity>
+    <View style={{backgroundColor:"#ccc", height:3, marginHorizontal:10, marginTop:10}}/>
+    </>
   );
+  
 
   const ListItemFeature = ({ item }) => (
     <>
@@ -359,7 +287,7 @@ export default function ScrollViewImage({ props }) {
         </View>
       </View>
       <View style={styles.newFeatureProList}>
-        <Text style={[styles.featureProperties, { marginBottom: 50, }]}>New Listed Properties</Text>
+        <Text style={[styles.featureProperties, { marginBottom: 20, }]}>New Listed Properties</Text>
         <FlatList
           data={newListData}
           keyExtractor={(item) => item.id.toString()}
